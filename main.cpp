@@ -1,4 +1,5 @@
 #include <iostream>
+#define pi 3.14
 using namespace std;
 
 class shape {
@@ -7,7 +8,7 @@ class shape {
         double y;
 
     public:
-        void get_display() {
+        void get_display(double x, double y=0) {
             this->x = x;
             this->y = y;
         }
@@ -31,16 +32,26 @@ class triangle : public shape {
         }
 };
 
+class circle : public shape {
+    public:
+        void display_area(double x, double y)  {
+            cout << "Area of Circle is: " << pi*x*x << endl;
+        }
+};
+
 
 int main() {
 
     shape *s;
     rectangle r;
     triangle t;
+    circle c;
     s = &r;
     s->display_area(4, 5);
     s = &t;
     s->display_area(4, 5);
+    s = &c;
+    s->display_area(4, 0);
 
 
 
